@@ -1,12 +1,12 @@
 name: "FAP: Build for multiple SDK sources"
+
 on:
   push:
-    ## put your main branch name under "braches"
     branches:
       - main
   pull_request:
   schedule:
-    # do a build every day
+    # every day
     - cron: "1 1 * * *"
 
 jobs:
@@ -22,8 +22,6 @@ jobs:
             sdk-channel: release
 
           - name: Momentum FW Dev
-            # example URL, replace with a valid one
-            # you can also use other modes for specifying SDK sources
             sdk-index-url: https://up.momentum-fw.dev/firmware/directory.json
             sdk-channel: dev
             sdk-hw-target: f7

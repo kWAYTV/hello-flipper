@@ -1,11 +1,12 @@
 App(
-    appid="hello-flipper",
+    appid="hello_flipper",
     name="Hello Flipper",
     apptype=FlipperAppType.EXTERNAL,
     entry_point="hello_flipper_app",
-    requires=["gui"],
     stack_size=2 * 1024,
-    fap_category="Misc",
-    fap_icon="images/hello_flipper.png",
-    fap_weburl="https://github.com/kWAYTV/flipper_zero_first_app",
+    fap_category="Examples",
+    fap_description="A simple hello world app for Flipper Zero",
+    fap_author="kWAY",
+    fap_version="1.0",
+    sources=["basic_demo.c"],
 )
