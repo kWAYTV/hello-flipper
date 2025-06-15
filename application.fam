@@ -1,0 +1,13 @@
+App(
+    appid="basic_demo",
+    name="Basic Demo",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="basic_demo_app",
+    requires=[
+        "gui"
+    ],
+    stack_size=2 * 1024,
+    fap_category="Misc",
+    fap_icon="images/basic_demo.png",
+    fap_weburl="https://github.com/kWAYTV/flipper_zero_first_app",
+)
