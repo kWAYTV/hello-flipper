@@ -7,7 +7,7 @@
 #include <gui/gui.h>
 #include <locale/locale.h>
 
-#define TAG "basic_demo_app"
+#define TAG "hello_flipper_app"
 
 typedef enum {
     DemoEventTypeKey,
@@ -32,7 +32,7 @@ typedef struct {
 } DemoContext;
 
 // Invoked when input (button press) is detected.  We queue a message and then return to the caller.
-static void basic_demo_input_callback(InputEvent* input_event, void* ctx) {
+static void hello_flipper_input_callback(InputEvent* input_event, void* ctx) {
     furi_assert(ctx);
     FuriMessageQueue* queue = ctx;
     DemoEvent event = {.type = DemoEventTypeKey, .input = *input_event};
@@ -40,7 +40,7 @@ static void basic_demo_input_callback(InputEvent* input_event, void* ctx) {
 }
 
 // Invoked by the draw callback to render the screen. We render our UI on the callback thread.
-static void basic_demo_render_callback(Canvas* canvas, void* ctx) {
+static void hello_flipper_render_callback(Canvas* canvas, void* ctx) {
     // Attempt to aquire context, so we can read the data.
     DemoContext* demo_context = ctx;
     if(furi_mutex_acquire(demo_context->mutex, 200) != FuriStatusOk) {
@@ -59,7 +59,7 @@ static void basic_demo_render_callback(Canvas* canvas, void* ctx) {
     furi_mutex_release(demo_context->mutex);
 }
 
-int32_t basic_demo_app(void* p) {
+int32_t hello_flipper_app(void* p) {
     UNUSED(p);
 
     // Configure our initial data.
@@ -73,8 +73,8 @@ int32_t basic_demo_app(void* p) {
 
     // Set ViewPort callbacks
     ViewPort* view_port = view_port_alloc();
-    view_port_draw_callback_set(view_port, basic_demo_render_callback, demo_context);
-    view_port_input_callback_set(view_port, basic_demo_input_callback, demo_context->queue);
+    view_port_draw_callback_set(view_port, hello_flipper_render_callback, demo_context);
+    view_port_input_callback_set(view_port, hello_flipper_input_callback, demo_context->queue);
 
     // Open GUI and register view_port
     Gui* gui = furi_record_open(RECORD_GUI);
