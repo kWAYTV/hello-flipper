@@ -48,8 +48,7 @@ static void hello_flipper_render_callback(Canvas* canvas, void* ctx) {
     }
 
     DemoData* data = demo_context->data;
-    furi_string_printf(data->buffer, "Basic");
-    furi_string_cat_printf(data->buffer, " demo");
+    furi_string_printf(data->buffer, "Hello Flipper");
 
     canvas_set_font(canvas, FontPrimary);
     canvas_draw_str_aligned(
